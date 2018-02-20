@@ -1,4 +1,4 @@
-package com.tiagotds_.pontointeligente.api;
+package com.tiagotds_.pontointeligente.api.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.tiagotds_.pontointeligente.api.entities.Funcionario;
 import com.tiagotds_.pontointeligente.api.enums.TipoEnum;
 
 @Entity
@@ -31,7 +30,7 @@ public class Lancamento implements Serializable {
 	private static final long serialVersionUID = -1256348116598223887L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private long id;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
 	private Date data;
@@ -53,11 +52,11 @@ public class Lancamento implements Serializable {
 
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

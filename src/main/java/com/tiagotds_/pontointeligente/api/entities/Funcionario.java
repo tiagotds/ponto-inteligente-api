@@ -21,7 +21,6 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.tiagotds_.pontointeligente.api.Lancamento;
 import com.tiagotds_.pontointeligente.api.enums.PerfilEnum;
 
 @Entity
