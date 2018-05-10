@@ -46,6 +46,7 @@ public class Lancamento implements Serializable {
 	@Column(nullable = false)
 	private TipoEnum tipo;
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "funcionario", nullable = false)
 	private Funcionario funcionario;
 
 	public Lancamento() {
