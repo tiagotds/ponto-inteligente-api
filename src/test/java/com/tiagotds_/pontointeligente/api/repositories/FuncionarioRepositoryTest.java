@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.tiagotds_.pontointeligente.api.entities.Empresa;
 import com.tiagotds_.pontointeligente.api.entities.Funcionario;
-import com.tiagotds_.pontointeligente.api.enums.PerfilEnum;
+import com.tiagotds_.pontointeligente.api.security.enums.PerfilEnum;
 import com.tiagotds_.pontointeligente.api.utils.PasswordUtils;
 
 @RunWith(SpringRunner.class)

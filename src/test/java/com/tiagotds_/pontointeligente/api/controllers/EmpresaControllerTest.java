@@ -1,5 +1,9 @@
 package com.tiagotds_.pontointeligente.api.controllers;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.Optional;
 
 import org.junit.Test;
@@ -41,7 +45,7 @@ public class EmpresaControllerTest {
 		BDDMockito.given(this.empresaService.buscarPorCnpj(Mockito.anyString())).willReturn(Optional.empty());
 
 		mvc.perform(MockMvcRequestBuilders.get(BUSCAR_EMPRESA_CNPJ_URL + CNPJ).accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isBadRequest)
+				.andExpect(status().isBadRequest())
 				.andExpect(jsonPath("$.errors").value("Empresa não encontrada para o CNPJ " + CNPJ));
 	}
 
@@ -52,8 +56,8 @@ public class EmpresaControllerTest {
 
 		mvc.perform(MockMvcRequestBuilders.get(BUSCAR_EMPRESA_CNPJ_URL + CNPJ).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.data.id").value(ID))
-				.andExpect(jsonPath("$.data.razaoSocial", equalsTo(RAZAO_SOCIAL)))
-				.andExpect(jsonPath("$.data.cnpj", equalsTo(CNPJ))).andExpect(jsonPath("$.errors").isEmpty());
+				.andExpect(jsonPath("$.data.razaoSocial", equalTo(RAZAO_SOCIAL)))
+				.andExpect(jsonPath("$.data.cnpj", equalTo(CNPJ))).andExpect(jsonPath("$.errors").isEmpty());
 	}
 
 	private Empresa obterDadosEmpresa() {
